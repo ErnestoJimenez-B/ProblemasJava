@@ -92,9 +92,70 @@ function Date(){
     var año = fecha.getFullYear;
 }
 function ValidateDate(e){   
-    var teclado = (document.all)?e.keyCode:e.which;
+    var teclado = (Document.all)?e.keyCode:e.which;
     if(teclado == 8) return true;
     var patron = /\d+-\d{2}-\d{4}/g;
     var prueba = String.fromCharCode(teclado);
     return patron.test(prueba);
+}
+/*7*/
+function Numbers7(){
+    var num1 = parseInt(Document.problema7.numero1.value);
+    var num2 = parseInt(Document.problema7.numero2.value);
+    if (num1 == num2){
+       var resultado = num1 * num2;
+       Document.problema7.resultado7.value = "Multiplicacion: " + resultado; 
+    }   else{
+        if (num1 > num2){
+            var resultado = num1 - num2;
+            Document.problema7.resultado7.value = "Resta: " + resultado; 
+        }   else{
+            var resultado = num1 + num2;
+            Document.problema7.resultado7.value = "Suma: " + resultado; 
+        }
+    }
+}
+/*8*/
+function Numbers8(){
+    var num1 = parseInt(document.problema8.numero1.value);
+    var num2 = parseInt(document.problema8.numero2.value);
+    var num3 = parseInt(document.problema8.numero3.value);
+
+    if (num1 > num2 && num1 > num3){
+        var resultado = num1;
+        Document.problema8.resultado.value = " 1: " + resultado;
+    }   else{
+        if (num2 > num1 && num2 > num3){
+            var resultado = num2;
+            Document.problema8.resultado.value = " 2: " + resultado;
+        }   else{
+            var resultado = num3;
+            Document.problema8.resultado.value = " 3: " + resultado;
+        }
+    }
+}
+/*9*/
+function Function9(){
+    var horas = parseInt(Document.problema9.horas.value);
+    if (horas == 0){
+        alert("Ingrese una hora válida.")
+        Document.problema9.horas.value = "";
+    }   else{
+        if (horas < 40){
+            var dinero = horas * 300;
+            Document.problema9.resultado9.value = "$" + dinero;
+        }   else{
+            if (horas > 40 && horas <= 48){
+                var horasExtra = horas - 40;
+                var dinero = (horasExtra * 600) + 12000;
+                Document.problema9.resultado9.value = "$" + dinero;
+            }   else{
+                if (horas > 48){
+                    var horasExtra = horas - 48;
+                    dinero = 16800 + (horasExtra * 900);
+                    Document.problema9.resultado9.value = "$" + dinero;
+                }
+            }
+        }
+    }
 }
